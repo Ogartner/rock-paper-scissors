@@ -1,3 +1,3 @@
 # Rock Paper Scissors
 
-## Simple game played in with prompt. Outputs inside console.
+## Simple game played with prompt. (Output inside console.)
