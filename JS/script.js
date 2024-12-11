@@ -116,8 +116,8 @@ const playGame = function () {
       console.log(`You Loose Round ${i}! ${human} loose against ${computer}.`);
       // No one wins round.
     } else if (game === 'same') {
-      console.log('Both with same output. No points.');
       i--;
+      console.log('Both with same output. No points.');
       // Wrong input, this round restarts.
     } else {
       i--;
@@ -128,10 +128,10 @@ const playGame = function () {
   }
   // Human wins game.
   if (humanScore > computerScore) {
-    console.log(`Win for the Human Race. ${humanScore} : ${computerScore}`);
+    console.log(`Win for the Human Race: ${humanScore} : ${computerScore}`);
     // Computer wins game.
   } else if (computerScore > humanScore) {
-    console.log(`Win for the Computer Race. ${computerScore} : ${humanScore}`);
+    console.log(`Win for the Computer Race: ${computerScore} : ${humanScore}`);
     // Scientology always wins at the end.
   } else {
     console.log('Equal points. Scientology wins!');
