@@ -116,7 +116,6 @@ const playGame = function () {
       console.log(`You Loose Round ${i}! ${human} loose against ${computer}.`);
       // No one wins round.
     } else if (game === 'same') {
-      i--;
       console.log('Both with same output. No points.');
       // Wrong input, this round restarts.
     } else {
