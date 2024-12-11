@@ -109,14 +109,14 @@ const playGame = function () {
     // Human wins round.
     if (human === game) {
       humanScore += 1;
-      console.log(`You Win Round ${i}! ${human} wins against ${computer}.`);
+      console.log(`Round ${i}: You Win! ${human} wins against ${computer}.`);
       // Computer wins round.
     } else if (computer === game) {
       computerScore += 1;
-      console.log(`You Loose Round ${i}! ${human} loose against ${computer}.`);
+      console.log(`Round ${i}: You Loose! ${human} loose against ${computer}.`);
       // No one wins round.
     } else if (game === 'same') {
-      console.log('Both with same output. No points.');
+      console.log(`Round ${i}: Both with same output. No points.`);
       // Wrong input, this round restarts.
     } else {
       i--;
