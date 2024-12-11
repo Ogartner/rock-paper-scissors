@@ -113,7 +113,7 @@ const playGame = function () {
       // Computer wins round.
     } else if (computer === game) {
       computerScore += 1;
-      console.log(`You Loose ${i}! ${human} loose against ${computer}.`);
+      console.log(`You Loose Round ${i}! ${human} loose against ${computer}.`);
       // No one wins round.
     } else if (game === 'same') {
       console.log('Both with same output. This round is a draw. No points');
