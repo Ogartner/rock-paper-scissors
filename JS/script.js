@@ -31,7 +31,6 @@ const getComputerChoice = function () {
     // If code above not working correctly.
     default:
       console.log('Something went wrong');
-      return null;
   }
 };
 
@@ -56,54 +55,86 @@ const getHumanChoice = function () {
 
     // User typed in a wrong value.
     default:
-      console.log('User Input wrong.');
+      console.log('User Input wrong. Try again.');
   }
 };
 
-const human = getHumanChoice();
-const computer = getComputerChoice();
-
 const playRound = function (human, computer) {
+  // Both the same output.
   if (human === computer) {
-    console.log(`Both have ${human} so no one wins.`);
+    return 'same';
+
+    // Who wins?
   } else {
     // Rock wins agains Scissor.
     if (human === 'Rock' && computer === 'Scissor') {
-      humanScore += 1;
-      return console.log(`You Win! ${human} wins against ${computer}.`);
+      return human;
 
       // Rock loose against Paper.
     } else if (human === 'Rock' && computer === 'Paper') {
-      computerScore += 1;
-      return console.log(`You Loose! ${computer} wins against ${human}.`);
+      return computer;
 
       // Paper wins agains Rock.
     } else if (human === 'Paper' && computer === 'Rock') {
-      humanScore += 1;
-      return console.log(`You Win! ${human} wins against ${computer}.`);
+      return human;
 
       // Paper loses against Scissor.
     } else if (human === 'Paper' && computer === 'Scissor') {
-      computerScore += 1;
-      return console.log(`You Loose! ${computer} wins against ${human}.`);
+      return computer;
 
       // Scissor wins against Paper.
     } else if (human === 'Scissor' && computer === 'Paper') {
-      humanScore += 1;
-      return console.log(`You Win! ${human} wins against ${computer}.`);
+      return human;
 
       // Scissor looses against Rock.
     } else if (human === 'Scissor' && computer === 'Rock') {
-      computerScore += 1;
-      return console.log(`You Loose! ${computer} wins against ${human}.`);
+      return computer;
 
       // Wrong Input
     } else {
-      return alert(
-        'Wrong Input! Please try again and type in "Rock", "Paper" or "Scissor."'
-      );
+      return false;
     }
   }
 };
 
-playRound(human, computer);
+const playGame = function () {
+  // Create a loop of 5 rounds.
+  for (let i = 1; i <= 5; i++) {
+    // get each round a new input.
+    const human = getHumanChoice();
+    const computer = getComputerChoice();
+    // Start round.
+    const game = playRound(human, computer);
+
+    // Human wins round.
+    if (human === game) {
+      humanScore += 1;
+      console.log(`You Win Round ${i}! ${human} wins against ${computer}.`);
+      // Computer wins round.
+    } else if (computer === game) {
+      computerScore += 1;
+      console.log(`You Loose ${i}! ${human} loose against ${computer}.`);
+      // No one wins round.
+    } else if (game === 'same') {
+      console.log('Both with same output. This round is a draw. No points');
+      // Wrong input, this round restarts.
+    } else {
+      i--;
+      alert(
+        'Wrong Input! Try this round again. Please type in "Rock", "Paper" or "Scissor."'
+      );
+    }
+  }
+  // Human wins game.
+  if (humanScore > computerScore) {
+    console.log(`Win for the Human Race. ${humanScore} : ${computerScore}`);
+    // Computer wins game.
+  } else if (computerScore > humanScore) {
+    console.log(`Win for the Computer Race. ${computerScore} : ${humanScore}`);
+    // Scientology always wins at the end.
+  } else {
+    console.log('Equal points. Scientology wins!');
+  }
+};
+
+playGame();
