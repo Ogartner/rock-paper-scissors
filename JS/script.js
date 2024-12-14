@@ -6,6 +6,7 @@ let humanChoice;
 
 let humanScore = 0;
 let computerScore = 0;
+let rockPaperScissor;
 
 // FUNCTIONS
 
@@ -36,27 +37,24 @@ const getComputerChoice = function () {
 
 // Create a function that asks user for rock/paper/scissors and return it.
 const getHumanChoice = function () {
-  // Asking for a number between 1 - 3.
-  let askHuman = prompt('Please type in "Rock", "Paper" or "Scissor');
-
-  askHuman = askHuman.toLocaleLowerCase();
-
-  // Same code as computerChoice.
-  switch (askHuman) {
-    case 'rock':
-      humanChoice = 'Rock';
-      return humanChoice;
-    case 'paper':
-      humanChoice = 'Paper';
-      return humanChoice;
-    case 'scissor':
-      humanChoice = 'Scissor';
-      return humanChoice;
-
-    // User typed in a wrong value.
-    default:
-      console.log('User Input wrong. Try again.');
-  }
+  rockBox.addEventListener('click', () => {
+    rockPaperScissor = 'Rock';
+    console.log(rockPaperScissor);
+    rockBox.classList.toggle('choose');
+    return rockPaperScissor;
+  });
+  paperBox.addEventListener('click', () => {
+    rockPaperScissor = 'Paper';
+    console.log(rockPaperScissor);
+    paperBox.classList.toggle('choose');
+    return rockPaperScissor;
+  });
+  scissorBox.addEventListener('click', () => {
+    rockPaperScissor = 'Scissor';
+    console.log(rockPaperScissor);
+    scissorBox.classList.toggle('choose');
+    return rockPaperScissor;
+  });
 };
 
 const playRound = function (human, computer) {
@@ -144,6 +142,9 @@ const scissorBox = document.querySelector('.human-half .scissor-box');
 const rockImg = document.querySelector('.human-half .rock-box');
 const paperImg = document.querySelector('.human-half .paper-box');
 const scissorImg = document.querySelector('.human-half .scissor-box');
+const rpsImgContainer = document.querySelector(
+  '.human-half .rps-img-container'
+);
 
 // Click start game to toggle to actual game.
 startGameBtn.addEventListener('click', () => {
@@ -152,6 +153,4 @@ startGameBtn.addEventListener('click', () => {
   computerHalf.classList.toggle('hidden');
 });
 
-rockBox.addEventListener('click', (e) => {
-  console.log(e.target);
-});
+getHumanChoice();
