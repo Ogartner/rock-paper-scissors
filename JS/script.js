@@ -132,3 +132,26 @@ const playGame = function () {
 };
 
 // playGame();
+
+// DOM
+const startGameBtn = document.querySelector('.start-btn');
+const humanHalf = document.querySelector('.human-half');
+const computerHalf = document.querySelector('.computer-half');
+
+const rockBox = document.querySelector('.human-half .rock-box');
+const paperBox = document.querySelector('.human-half .paper-box');
+const scissorBox = document.querySelector('.human-half .scissor-box');
+const rockImg = document.querySelector('.human-half .rock-box');
+const paperImg = document.querySelector('.human-half .paper-box');
+const scissorImg = document.querySelector('.human-half .scissor-box');
+
+// Click start game to toggle to actual game.
+startGameBtn.addEventListener('click', () => {
+  startGameBtn.classList.toggle('active');
+  humanHalf.classList.toggle('hidden');
+  computerHalf.classList.toggle('hidden');
+});
+
+rockBox.addEventListener('click', (e) => {
+  console.log(e.target);
+});
