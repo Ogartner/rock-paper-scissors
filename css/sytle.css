@@ -6,7 +6,7 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url('https://cdn.pixabay.com/photo/2013/07/12/15/02/fingers-149295_1280.png');
+  background-image: url('../images/rock-paper-scissors.png');
   /* background-repeat: no-repeat;
   background-size: cover; */
   width: 100vw;
@@ -39,4 +39,8 @@ body {
 
 .start-btn:hover {
   color: azure;
+}
+
+img {
+  width: 300px;
 }
