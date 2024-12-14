@@ -68,62 +68,56 @@ const playRound = function (human, computer) {
   } else {
     // Rock wins agains Scissor.
     if (human === 'Rock' && computer === 'Scissor') {
-      return human;
+      return true;
 
       // Rock loose against Paper.
     } else if (human === 'Rock' && computer === 'Paper') {
-      return computer;
+      return false;
 
       // Paper wins agains Rock.
     } else if (human === 'Paper' && computer === 'Rock') {
-      return human;
+      return true;
 
       // Paper loses against Scissor.
     } else if (human === 'Paper' && computer === 'Scissor') {
-      return computer;
+      return false;
 
       // Scissor wins against Paper.
     } else if (human === 'Scissor' && computer === 'Paper') {
-      return human;
+      return true;
 
       // Scissor looses against Rock.
     } else if (human === 'Scissor' && computer === 'Rock') {
-      return computer;
-
-      // Wrong Input
-    } else {
       return false;
     }
   }
 };
 
 const playGame = function () {
-  // Create a loop of 5 rounds.
-  for (let i = 1; i <= 5; i++) {
-    // get each round a new input.
-    const human = getHumanChoice();
-    const computer = getComputerChoice();
-    // Start round.
-    const game = playRound(human, computer);
+  // get each round a new input.
+  const human = getHumanChoice();
+  const computer = getComputerChoice();
+  // Start round.
+  const game = playRound(human, computer);
 
+  // No one wins round.
+  if (game === 'same') {
+    console.log(`Round ${i}: Both with same output. No points.`);
     // Human wins round.
-    if (human === game) {
-      humanScore += 1;
-      console.log(`Round ${i}: You Win! ${human} wins against ${computer}.`);
-      // Computer wins round.
-    } else if (computer === game) {
-      computerScore += 1;
-      console.log(`Round ${i}: You Loose! ${human} loose against ${computer}.`);
-      // No one wins round.
-    } else if (game === 'same') {
-      console.log(`Round ${i}: Both with same output. No points.`);
-      // Wrong input, this round restarts.
-    } else {
-      i--;
-      alert(
-        'Wrong Input! Try this round again. Please type in "Rock", "Paper" or "Scissor."'
-      );
-    }
+  } else if (game) {
+    humanScore += 1;
+    console.log(`Round ${i}: You Win! ${human} wins against ${computer}.`);
+    // Computer wins round.
+  } else if (!game) {
+    computerScore += 1;
+    console.log(`Round ${i}: You Loose! ${human} loose against ${computer}.`);
+
+    // Wrong input, this round restarts.
+  } else {
+    i--;
+    alert(
+      'Wrong Input! Try this round again. Please type in "Rock", "Paper" or "Scissor."'
+    );
   }
   // Human wins game.
   if (humanScore > computerScore) {
@@ -137,4 +131,4 @@ const playGame = function () {
   }
 };
 
-playGame();
+// playGame();
