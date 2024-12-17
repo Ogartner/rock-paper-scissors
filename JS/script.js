@@ -29,7 +29,7 @@ const resultScissor = document.querySelector('.result-scissor');
 const humanWinMessage = document.createElement('h3');
 humanWinMessage.textContent = 'Human Wins!';
 const computerWinMessage = document.createElement('h3');
-computerWinMessage.textContent = 'Computer Wins!';
+computerWinMessage.textContent = 'You Win!';
 const drawMessage = document.createElement('h3');
 drawMessage.textContent = 'DRAW!';
 
