@@ -16,21 +16,26 @@ const resultPage = document.querySelector('body');
 const rockBox = document.querySelector('.human-half .rock-box');
 const paperBox = document.querySelector('.human-half .paper-box');
 const scissorBox = document.querySelector('.human-half .scissor-box');
-const rockImg = document.querySelector('.human-half .rock-box');
-const paperImg = document.querySelector('.human-half .paper-box');
-const scissorImg = document.querySelector('.human-half .scissor-box');
 const confirmBtn = document.querySelector('.confirm-btn');
 const rpsImgContainer = document.querySelector(
   '.human-half .rps-img-container'
 );
 
-const drawResult = document.querySelector('.draw-result');
-const winResult = document.querySelector('.win-result');
-const looseResult = document.querySelector('.loose-result');
+const resultBox = document.querySelector('.result-box');
 
-const Rock = document.querySelector('.result-rock');
-const Paper = document.querySelector('.result-paper');
-const Scissor = document.querySelector('.result-scissor');
+const container = document.querySelector('.container');
+
+const resultRock = document.querySelector('.result-rock');
+const resultPaper = document.querySelector('.result-paper');
+const resultScissor = document.querySelector('.result-scissor');
+
+// Create elements.
+const humanWinMessage = document.createElement('h3');
+humanWinMessage.textContent = 'Human Wins!';
+const computerWinMessage = document.createElement('h3');
+computerWinMessage.textContent = 'Computer Wins!';
+const drawMessage = document.createElement('h3');
+drawMessage.textContent = 'DRAW!';
 
 // FUNCTIONS
 
@@ -135,56 +140,62 @@ const playGame = function () {
       humanHalf.classList.add('hidden');
       computerHalf.classList.add('hidden');
       resultPage.classList.add('draw');
-      drawResult.classList.remove('hidden');
+      if (human === 'Rock') {
+        resultBox.classList.remove('hidden');
+        resultRock.classList.remove('hidden');
+        resultBox.appendChild(drawMessage);
+      }
+      if (human === 'Paper') {
+        resultBox.classList.remove('hidden');
+        resultPaper.classList.remove('hidden');
+        resultBox.appendChild(drawMessage);
+      }
+      if (human === 'Scissor') {
+        resultBox.classList.remove('hidden');
+        resultScissor.classList.remove('hidden');
+        resultBox.appendChild(drawMessage);
+      }
     } else if (playRound === human) {
       humanHalf.classList.add('hidden');
       computerHalf.classList.add('hidden');
       resultPage.classList.add('win-human');
-      winResult.classList.remove('hidden');
       if (human === 'Rock') {
+        resultBox.classList.remove('hidden');
+        resultRock.classList.remove('hidden');
+        resultBox.appendChild(humanWinMessage);
       }
-      human.classList.remove('hidden');
+      if (human === 'Paper') {
+        resultBox.classList.remove('hidden');
+        resultPaper.classList.remove('hidden');
+        resultBox.appendChild(humanWinMessage);
+      }
+      if (human === 'Scissor') {
+        resultBox.classList.remove('hidden');
+        resultScissor.classList.remove('hidden');
+        resultBox.appendChild(humanWinMessage);
+      }
     } else if (playRound === computer) {
       humanHalf.classList.add('hidden');
       computerHalf.classList.add('hidden');
       resultPage.classList.add('win-computer');
-      looseResult.classList.remove('hidden');
-      computer.classList.remove('hidden');
+      if (computer === 'Rock') {
+        resultBox.classList.remove('hidden');
+        resultRock.classList.remove('hidden');
+        resultBox.appendChild(computerWinMessage);
+      }
+      if (computer === 'Paper') {
+        resultBox.classList.remove('hidden');
+        resultPaper.classList.remove('hidden');
+        resultBox.appendChild(computerWinMessage);
+      }
+      if (computer === 'Scissor') {
+        resultBox.classList.remove('hidden');
+        resultScissor.classList.remove('hidden');
+        resultBox.appendChild(computerWinMessage);
+      }
     }
   });
 };
-
-// // No one wins round.
-// if (game === 'same') {
-//   console.log(`Round ${i}: DRAW!`);
-//   // Human wins round.
-// } else if (game) {
-//   humanScore += 1;
-//   console.log(`Round ${i}: You Win! ${human} wins against ${computer}.`);
-//   // Computer wins round.
-// } else if (!game) {
-//   computerScore += 1;
-//   console.log(`Round ${i}: You Loose! ${human} loose against ${computer}.`);
-
-//   // Wrong input, this round restarts.
-// } else {
-//   i--;
-//   alert(
-//     'Wrong Input! Try this round again. Please type in "Rock", "Paper" or "Scissor."'
-//   );
-// }
-// Human wins game.
-// if (humanScore > computerScore) {
-//   console.log(`Win for the Human Race: ${humanScore} : ${computerScore}`);
-//   // Computer wins game.
-// } else if (computerScore > humanScore) {
-//   console.log(`Win for the Computer Race: ${computerScore} : ${humanScore}`);
-//   // Scientology always wins at the end.
-// } else {
-//   console.log('Equal points. Scientology wins!');
-// }
-
-// playGame();
 
 const init = function () {
   // Click start game to toggle to actual game.

@@ -118,11 +118,11 @@ body {
 }
 
 .win-human {
-  background-color: #fff8e8;
+  background-color: #d5e7b5;
 }
 
 .win-computer {
-  background-color: #e85c0d;
+  background-color: #ffb38e;
 }
 
 .draw {
@@ -130,7 +130,7 @@ body {
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 .win-result,
@@ -147,10 +147,25 @@ body {
   text-align: center;
 }
 
-.result-img {
-  width: 150px;
+.result {
+  width: 400px;
+  height: 370px;
 }
-/* 
-.result h3 {
-  
-} */
+
+.result-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.result-box h3 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #999;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 6rem;
+}
