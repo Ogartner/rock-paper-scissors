@@ -8,6 +8,12 @@
   </head>
   <body>
     <div class="container">
+      <!-- Play Game button to show other content on click -->
+      <div class="start-game-container">
+        <button class="start-btn">Start Game</button>
+      </div>
+
+      <!-- Left human site section. (Shows after Play Game has been clicked) -->
       <section class="human-half hidden">
         <div class="rps-header">
           <h2>Human</h2>
@@ -21,13 +27,15 @@
             <img class="Paper" src="images/paper.png" alt="paper" />
           </div>
           <div class="scissor-box">
-            <img class="Scissor" src="images/scissor.png" alt="scissor" />
+            <img class="Scissor" src="images/dagger.png" alt="scissor" />
           </div>
         </div>
+        <!-- Button on human site, to confirm chosen element and wait for result -->
         <div class="confirm-btn-div">
           <button class="confirm-btn hidden">Confirm</button>
         </div>
       </section>
+      <!-- Right computer side section. (Shows after Play Game has been clicked) -->
       <section class="computer-half hidden">
         <div class="rps-header">
           <h2>Computer</h2>
@@ -41,14 +49,12 @@
             <img src="images/paper.png" alt="paper" />
           </div>
           <div class="scissor-box">
-            <img src="images/scissor.png" alt="scissor" />
+            <img src="images/dagger.png" alt="scissor" />
           </div>
         </div>
       </section>
-      <div class="start-game-container">
-        <button class="start-btn">Start Game</button>
-      </div>
-      <!-- Win, loose or draw -->
+
+      <!-- Win-, loose- or draw- element. (Appears after confirm button is clicked) -->
       <div class="result-box hidden">
         <img
           class="result-rock result hidden"
@@ -62,7 +68,7 @@
         />
         <img
           class="result-scissor result hidden"
-          src="images/scissor.png"
+          src="images/dagger.png"
           alt="scissor"
         />
       </div>

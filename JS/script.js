@@ -7,12 +7,11 @@ let humanScore = 0;
 let computerScore = 0;
 let rockPaperScissor;
 
-// DOM
+// Elements.
 const startGameBtn = document.querySelector('.start-btn');
 const humanHalf = document.querySelector('.human-half');
 const computerHalf = document.querySelector('.computer-half');
 const resultPage = document.querySelector('body');
-
 const rockBox = document.querySelector('.human-half .rock-box');
 const paperBox = document.querySelector('.human-half .paper-box');
 const scissorBox = document.querySelector('.human-half .scissor-box');
@@ -20,11 +19,8 @@ const confirmBtn = document.querySelector('.confirm-btn');
 const rpsImgContainer = document.querySelector(
   '.human-half .rps-img-container'
 );
-
 const resultBox = document.querySelector('.result-box');
-
 const container = document.querySelector('.container');
-
 const resultRock = document.querySelector('.result-rock');
 const resultPaper = document.querySelector('.result-paper');
 const resultScissor = document.querySelector('.result-scissor');
@@ -36,8 +32,6 @@ const computerWinMessage = document.createElement('h3');
 computerWinMessage.textContent = 'Computer Wins!';
 const drawMessage = document.createElement('h3');
 drawMessage.textContent = 'DRAW!';
-
-// FUNCTIONS
 
 // Create function to get a random computer choice of rock/paper/scissors.
 const getComputerChoice = function () {
@@ -64,10 +58,10 @@ const getComputerChoice = function () {
   }
 };
 
+// Create function that choose rock/paper/scissor and hightlights chosen element.
 const getUserChoice = () => {
   rockBox.addEventListener('click', () => {
     userChoice = 'Rock';
-    console.log(userChoice);
     rockBox.classList.add('choose');
     paperBox.classList.remove('choose');
     scissorBox.classList.remove('choose');
@@ -75,7 +69,6 @@ const getUserChoice = () => {
   });
   paperBox.addEventListener('click', () => {
     userChoice = 'Paper';
-    console.log(userChoice);
     paperBox.classList.add('choose');
     rockBox.classList.remove('choose');
     scissorBox.classList.remove('choose');
@@ -83,7 +76,6 @@ const getUserChoice = () => {
   });
   scissorBox.addEventListener('click', () => {
     userChoice = 'Scissor';
-    console.log(userChoice);
     scissorBox.classList.add('choose');
     rockBox.classList.remove('choose');
     paperBox.classList.remove('choose');
@@ -91,6 +83,7 @@ const getUserChoice = () => {
   });
 };
 
+// Create function that returns true if human wins, else false.
 const getWinner = function (human, computer) {
   // Both the same output.
   if (human === computer) {
@@ -126,88 +119,149 @@ const getWinner = function (human, computer) {
 };
 
 const playGame = function () {
+  // Start with this function to get value of userChoice.
   getUserChoice();
+
   // Confirm choice and play round.
   confirmBtn.addEventListener('click', () => {
     // get each round a new input.
     const computer = getComputerChoice();
     const human = userChoice;
-    console.log(human, computer);
-    const playRound = getWinner(human, computer);
-    console.log(human, computer);
 
+    // Returns true for human or false for computer.
+    const playRound = getWinner(human, computer);
+
+    // DRAW
     if (playRound === 'draw') {
       humanHalf.classList.add('hidden');
       computerHalf.classList.add('hidden');
-      resultPage.classList.add('draw');
+      // Set result color background with timer.
+      setTimeout(() => {
+        resultPage.classList.add('draw-background');
+      }, 1337);
+
       if (human === 'Rock') {
-        resultBox.classList.remove('hidden');
-        resultRock.classList.remove('hidden');
-        resultBox.appendChild(drawMessage);
+        // Set result image/message with timer. (same time as color background)
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultRock.classList.remove('hidden');
+          resultBox.appendChild(drawMessage);
+        }, 1337);
       }
       if (human === 'Paper') {
-        resultBox.classList.remove('hidden');
-        resultPaper.classList.remove('hidden');
-        resultBox.appendChild(drawMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultPaper.classList.remove('hidden');
+          resultBox.appendChild(drawMessage);
+        }, 1337);
       }
       if (human === 'Scissor') {
-        resultBox.classList.remove('hidden');
-        resultScissor.classList.remove('hidden');
-        resultBox.appendChild(drawMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultScissor.classList.remove('hidden');
+          resultBox.appendChild(drawMessage);
+        }, 1337);
       }
+      // Reset the game after timer makes winner of this round clear.
+      setTimeout(() => {
+        reset();
+      }, 4000);
+
+      // HUMAN WINS
     } else if (playRound === human) {
       humanHalf.classList.add('hidden');
       computerHalf.classList.add('hidden');
-      resultPage.classList.add('win-human');
+      setTimeout(() => {
+        resultPage.classList.add('win-human-background');
+      }, 1337);
       if (human === 'Rock') {
-        resultBox.classList.remove('hidden');
-        resultRock.classList.remove('hidden');
-        resultBox.appendChild(humanWinMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultRock.classList.remove('hidden');
+          resultBox.appendChild(humanWinMessage);
+        }, 1337);
       }
       if (human === 'Paper') {
-        resultBox.classList.remove('hidden');
-        resultPaper.classList.remove('hidden');
-        resultBox.appendChild(humanWinMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultPaper.classList.remove('hidden');
+          resultBox.appendChild(humanWinMessage);
+        }, 1337);
       }
       if (human === 'Scissor') {
-        resultBox.classList.remove('hidden');
-        resultScissor.classList.remove('hidden');
-        resultBox.appendChild(humanWinMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultScissor.classList.remove('hidden');
+          resultBox.appendChild(humanWinMessage);
+        }, 1337);
       }
+      setTimeout(() => {
+        reset();
+      }, 4000);
+
+      // COMPUTER WINS.
     } else if (playRound === computer) {
       humanHalf.classList.add('hidden');
       computerHalf.classList.add('hidden');
-      resultPage.classList.add('win-computer');
+      setTimeout(() => {
+        resultPage.classList.add('win-computer-background');
+      }, 1337);
       if (computer === 'Rock') {
-        resultBox.classList.remove('hidden');
-        resultRock.classList.remove('hidden');
-        resultBox.appendChild(computerWinMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultRock.classList.remove('hidden');
+          resultBox.appendChild(computerWinMessage);
+        }, 1337);
       }
       if (computer === 'Paper') {
-        resultBox.classList.remove('hidden');
-        resultPaper.classList.remove('hidden');
-        resultBox.appendChild(computerWinMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultPaper.classList.remove('hidden');
+          resultBox.appendChild(computerWinMessage);
+        }, 1337);
       }
       if (computer === 'Scissor') {
-        resultBox.classList.remove('hidden');
-        resultScissor.classList.remove('hidden');
-        resultBox.appendChild(computerWinMessage);
+        setTimeout(() => {
+          resultBox.classList.remove('hidden');
+          resultScissor.classList.remove('hidden');
+          resultBox.appendChild(computerWinMessage);
+        }, 1337);
       }
+      setTimeout(() => {
+        reset();
+      }, 4000);
     }
   });
 };
 
+// Reset the game.
+const reset = () => {
+  resultBox.classList.add('hidden');
+  resultRock.classList.add('hidden');
+  resultPaper.classList.add('hidden');
+  resultScissor.classList.add('hidden');
+  humanWinMessage.remove();
+  computerWinMessage.remove();
+  drawMessage.remove();
+  resultPage.classList.remove('win-human-background');
+  resultPage.classList.remove('win-computer-background');
+  resultPage.classList.remove('draw-background');
+  humanHalf.classList.remove('hidden');
+  computerHalf.classList.remove('hidden');
+};
+
+// Create initialization.
 const init = function () {
-  // Click start game to toggle to actual game.
+  // Click Play Game to switch from title menu to actual game.
   startGameBtn.addEventListener('click', () => {
     startGameBtn.classList.toggle('active');
     humanHalf.classList.remove('hidden');
     computerHalf.classList.remove('hidden');
   });
 
-  // getUserChoice();
-
+  // Start Game.
   playGame();
 };
 
+// Initialize page.
 init();
