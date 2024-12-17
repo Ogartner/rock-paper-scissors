@@ -27,9 +27,9 @@ const resultScissor = document.querySelector('.result-scissor');
 
 // Create elements.
 const humanWinMessage = document.createElement('h3');
-humanWinMessage.textContent = 'Human Wins!';
+humanWinMessage.textContent = 'You Win!';
 const computerWinMessage = document.createElement('h3');
-computerWinMessage.textContent = 'You Win!';
+computerWinMessage.textContent = 'Computer Wins!';
 const drawMessage = document.createElement('h3');
 drawMessage.textContent = 'DRAW!';
 
