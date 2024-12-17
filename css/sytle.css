@@ -60,10 +60,6 @@ body {
   border-width: 8px;
 }
 
-/* .rps-img-container img.active {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-} */
-
 .computer-half {
   height: 100vh;
   flex: 1;
@@ -71,7 +67,6 @@ body {
 }
 
 .start-btn {
-  /* position: absolute; */
   padding: 1.8rem 3.2rem;
   border: none;
   border-radius: 9rem;
@@ -85,13 +80,10 @@ body {
 
 .start-btn:hover {
   color: azure;
+  background-color: #8abfa3;
 }
 
 .start-btn.active {
-  display: none;
-}
-
-.hidden {
   display: none;
 }
 
@@ -100,3 +92,65 @@ body {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
   zoom: 1.2;
 }
+
+.confirm-btn-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-btn {
+  margin-top: 2rem;
+  padding: 1.1rem 6.3rem;
+  border: none;
+  border-radius: 6rem;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #257180;
+  background-color: #d9eafd;
+}
+
+.confirm-btn:hover {
+  color: azure;
+  background-color: #e85c0d;
+}
+
+.win-human {
+  background-color: #fff8e8;
+}
+
+.win-computer {
+  background-color: #e85c0d;
+}
+
+.draw {
+  background-color: #f8fafc;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.win-result,
+.loose-result,
+.draw-result {
+  margin-bottom: 5.5rem;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.result-img {
+  width: 150px;
+}
+/* 
+.result h3 {
+  
+} */
