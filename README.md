@@ -1,3 +1,3 @@
 # Rock Paper Scissors
 
-## Simple game played with prompt. (Output inside console.)
+## Pick an rock, paper or scissor image and see if you win agains the computer. 
