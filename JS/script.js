@@ -138,6 +138,7 @@ const playGame = function () {
       // Set result color background with timer.
       setTimeout(() => {
         resultPage.classList.add('draw-background');
+        resultPage.classList.add('filter');
       }, 1337);
 
       if (human === 'Rock') {
@@ -173,6 +174,7 @@ const playGame = function () {
       computerHalf.classList.add('hidden');
       setTimeout(() => {
         resultPage.classList.add('win-human-background');
+        resultPage.classList.add('filter');
       }, 1337);
       if (human === 'Rock') {
         setTimeout(() => {
@@ -205,6 +207,7 @@ const playGame = function () {
       computerHalf.classList.add('hidden');
       setTimeout(() => {
         resultPage.classList.add('win-computer-background');
+        resultPage.classList.add('filter');
       }, 1337);
       if (computer === 'Rock') {
         setTimeout(() => {
@@ -246,6 +249,7 @@ const reset = () => {
   resultPage.classList.remove('win-human-background');
   resultPage.classList.remove('win-computer-background');
   resultPage.classList.remove('draw-background');
+  resultPage.classList.remove('filter');
   humanHalf.classList.remove('hidden');
   computerHalf.classList.remove('hidden');
 };

@@ -169,3 +169,7 @@ body {
   padding: 1rem;
   border-radius: 6rem;
 }
+
+.filter {
+  backdrop-filter: blur(13px);
+}
